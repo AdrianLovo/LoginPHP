@@ -8,10 +8,6 @@
 </head>
 <body>
 
-	<header>
-		<h1>Logotipo</h1>
-	</header>
-
 	<?php
 		require_once("Modules/menu.php");
 	?>
@@ -24,6 +20,7 @@
 		?>
 	</section>
 
+	
 
 </body>
 </html>
