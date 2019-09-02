@@ -11,7 +11,7 @@
 		public function getPagina(){
 			
 			if(isset($_GET["action"])){
-				if($_GET["action"] == "ingreso" || $_GET["action"] == "informacion" || $_GET["action"] == "registro" || $_GET["action"] == "salida"){
+				if($_GET["action"] == "ingreso" || $_GET["action"] == "informacion" || $_GET["action"] == "registro" || $_GET["action"] == "salida" || $_GET["action"] == "intentos"){
 					include_once("Views/modules/". $_GET["action"] .".php");
 				}else{
 					include_once("Views/modules/ingreso.php");	

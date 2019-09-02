@@ -14,8 +14,6 @@ function Login(){
 			success: function (respuesta) {
 				if(respuesta == 0){
 					alertify.error('Usuario o contraseña no validos');
-				}else{
-					location.href ="informacion";
 				}				
 			},error: function() {
 				alertify.error('Error');
@@ -29,14 +27,14 @@ function Validar(){
 	var username = $("#username").val();
 	var password = $("#password").val();
 
-	if(username.length > 50){
+	if(username.length > 50 || username.length == ""){
 		$("#Eusername").html("<br> Escriba por favor menos de 50 caracteres.");
 		return false;		
 	}else{
 		$("#Eusername").html("");
 	}
 
-	if(password.length > 50){
+	if(password.length > 50 || password.length == ""){
 		$("#Eusername").html("<br> Escriba por favor menos de 50 caracteres.");
 		return false;		
 	}else{

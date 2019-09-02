@@ -8,7 +8,7 @@
   	<span id="Eusername"></span>
   	<input id='password' name='password' placeholder='Password' type='password' maxlength="50">  	
   	<span id="Epassword"></span>
-  	<input type='submit' value='Ingresar' onclick="Login()" >
+  	<input id="ingreso" type='submit' value='Ingresar' onclick="Login()" >
 </div>
 
 
