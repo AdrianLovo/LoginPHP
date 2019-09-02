@@ -12,9 +12,13 @@ function Login(){
 			data: datos,
 			async: true,
 			success: function (respuesta) {
-				alert("TRUE");
+				if(respuesta == 0){
+					alertify.error('Usuario o contraseña no validos');
+				}else{
+					location.href ="informacion";
+				}				
 			},error: function() {
-				alert("FALSE");
+				alertify.error('Error');
 			}
 		});
 	}
@@ -38,7 +42,6 @@ function Validar(){
 	}else{
 		$("#Epassword").html("");
 	}
-
 	return true;
 }
 

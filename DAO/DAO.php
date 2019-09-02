@@ -20,10 +20,7 @@
 			try {
 				$statement = $pdo->prepare($this->queryBuscar());
 				$filas = $this->metodoBuscar($statement, $parametro);
-				
-				$statement = null;
 				$pdo = null;
-
 				return $filas;				
 			} catch (Exception $e) {
 				echo($e);

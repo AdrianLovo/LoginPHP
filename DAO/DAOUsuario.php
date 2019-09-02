@@ -6,17 +6,14 @@
 	class DAOUsuario extends DAO{
 
 		public function queryBuscar(){
-			$query = "SELECT * FROM login.usuario WHERE usuario=? AND password=? AND intentos <3 OR intentos IS NULL";
+			$query = "SELECT * FROM login.usuario WHERE usuario=? AND password=? AND (intentos <3 OR intentos IS NULL)";
 			return $query;
 		}
 
 		public function metodoBuscar($statement, $parametro){
 			$statement->execute([$parametro->getUsername(), $parametro->getPassword()]);
-			$respuesta = $statement->fetch();
-			
-			var_dump(count($respuesta["usuario"]));
-
-			return 0;
+			$filas = $statement->rowCount();
+			return $filas;
 		}
 
 	}

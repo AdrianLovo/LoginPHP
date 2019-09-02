@@ -11,7 +11,14 @@
 	if($funcion != "" && $username !="" && $password != ""){
 		$parametro = new Usuario(null, $username, $password, null, null);
 		$dao = new DAOUsuario();
-		echo($dao->buscar($parametro));
+		$filas = $dao->buscar($parametro);
+
+		if($filas > 0){
+			session_start();	
+			$_SESSION['validar']  = true;
+		}
+
+		echo($filas);
 	}else{
 		echo(0);
 	}
