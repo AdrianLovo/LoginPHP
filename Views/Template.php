@@ -4,6 +4,7 @@
 	<title>Template</title>
 
 	<link rel="stylesheet" type="text/css" href="../Views/css/style.css">
+	<script type="text/javascript" src="Views/js/jquery-3.3.1.min.js"></script>
 
 </head>
 <body>
@@ -21,6 +22,8 @@
 	</section>
 
 	
+
+	<script type="text/javascript" src="Views/js/ingreso.js"></script>	
 
 </body>
 </html>
