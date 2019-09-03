@@ -5,15 +5,13 @@
 		private $idUsuario;
 		private $username;
 		private $password;
-		private $email;
-		private $intentos;
+		private $email;		
 
-        public function __construct($idUsuario, $username, $password, $email, $intentos){
+        public function __construct($idUsuario, $username, $password, $email){
             $this->idUsuario = $idUsuario;
             $this->username = $username;
             $this->password = $password;
             $this->email = $email;
-            $this->intentos = $intentos;
         }
 
     	public function getIdUsuario(){
@@ -47,14 +45,6 @@
     	public function setEmail($email){
         	$this->email = $email;
     	}
-
-    	public function getIntentos(){
-        	return $this->intentos;
-    	}
-    
-	    public function setIntentos($intentos){
-	        $this->intentos = $intentos;
-	    }
 	}
 
 

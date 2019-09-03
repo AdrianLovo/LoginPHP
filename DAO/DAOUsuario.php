@@ -6,7 +6,7 @@
 	class DAOUsuario extends DAO{
 
 		public function queryBuscar(){
-			$query = "SELECT * FROM login.usuario WHERE usuario=? AND password=? AND (intentos <3 OR intentos IS NULL)";
+			$query = "SELECT * FROM login.usuario WHERE usuario=? AND password=?";
 			return $query;
 		}
 

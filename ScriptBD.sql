@@ -7,7 +7,6 @@ CREATE TABLE IF NOT EXISTS usuario(
     usuario VARCHAR(50),
     password VARCHAR(50),
     email VARCHAR(50),
-    intentos INT,
     PRIMARY KEY (idUsuario)
 )
 GO
