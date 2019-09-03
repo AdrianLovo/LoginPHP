@@ -12,9 +12,14 @@ function Login(){
 			data: datos,
 			async: true,
 			success: function (respuesta) {
-				if(respuesta == 0){
-					alertify.error('Usuario o contraseña no validos');
-				}				
+				if(respuesta == 1){
+					window.location.href = "informacion";
+				}else{
+					alertify.error('Usuario o contraseña no validos');	
+				}
+				if(respuesta == "Error"){
+					window.location.href = "intentos";
+				}
 			},error: function() {
 				alertify.error('Error');
 			}

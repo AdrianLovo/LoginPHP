@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Template</title>
-	<link rel="shortcut icon" href="Resources/img/favicon.ico">
+	<link rel="shortcut icon" href="/Views/Resources/img/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="../Views/css/style.css">
 	<link rel="stylesheet" type="text/css" href="../Views/Resources/alertify/css/alertify.min.css">
@@ -13,12 +13,14 @@
 <body>
 
 	<?php
-		require_once("Modules/menu.php");
+		require_once("Controllers/ControllerPagina.php");
+		$menu = new ControllerPagina();
+		$menu->getMenu();
 	?>
 
 	<section>
 		<?php
-			require_once("Controllers/ControllerPagina.php");
+			//require_once("Controllers/ControllerPagina.php");
 			$pagina = new ControllerPagina();
 			$pagina->getPagina();
 		?>

@@ -61,7 +61,7 @@ h2 {
 }
 
 a {
-  color: #435160;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
@@ -166,3 +166,12 @@ input[type="submit"]:hover {
   }
 }
 
+
+
+.textoPrincipal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
