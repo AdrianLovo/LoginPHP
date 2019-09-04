@@ -1,4 +1,5 @@
 var GlobalUsername = true;
+var GlobalPassword = true;
 
 function Registrar(){
 	var envio = ValidarRegistro();
@@ -77,23 +78,22 @@ $("#username").change(function(){
 
 $("#password").change(function(){
 	var bandera = true;
-	var username = $("#password").val();
+	var password = $("#password").val();
+	var expresion = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-	if(username.length > 50){
-		$("#Epassword").html("<br> Password debe tener menos de 50 caracteres");
-		bandera = false;		
-	}else if(username.length == ""){
-		$("#Epassword").html("<br> Password vacio");
-		bandera = false;		
+	if(!expresion.test(password)){
+		$("#Epassword").html("<br> Mínimo de 8 caracteres al menos 1 alfabeto, 1 número");
+		bandera = false;
 	}else{
-		$("#Epassword").html("");
+		$("#Epassword").html("");					
 	}
-	
+
 	if(bandera == false){
 		$("#password").addClass("alertFalse");		
-		GlobalUsername = false;
+		GlobalPassword = false;
 	}else{
 		$("#password").removeClass("alertFalse");
-		GlobalUsername = true;
+		GlobalPassword = true;
 	}
 });
+
