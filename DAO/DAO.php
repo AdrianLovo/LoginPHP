@@ -4,12 +4,14 @@
 
 	abstract class DAO extends Conexion{
 
-		abstract function queryBuscar();					
+		abstract function queryBuscar();		
+		abstract function queryBuscarPor($filtro);			
 		/*abstract function queryAgregar();						
 		abstract function queryEliminar();						
 		abstract function queryModificar();*/						
 
 		abstract function metodoBuscar($statement, $parametro);		
+		abstract function metodoBuscarPor($statement, $parametro);
 		/*abstract function metodoAgregar($statement, $parametro);
 		abstract function metodoEliminar($statement, $parametro);				
 		abstract function metodoModificar($statement, $parametro1, $parametro2);*/
@@ -29,18 +31,20 @@
 			}
 		}	
 
-		public function intentos($parametro){
+		public function buscarPor($parametro, $filtro) {
 			$pdo = $this->conectar();
-			try{
-				$statement = $pdo->prepare($this->queryIntentos());
-				$filas = $this->metodoModificar($statement, $parametro);
-				return $filas;
-			}catch(Exception $e){
+			try {
+				$statement = $pdo->prepare($this->queryBuscarPor($filtro));
+				$filas = $this->metodoBuscarPor($statement, $parametro);
+				$pdo = null;
+				return $filas;				
+			} catch (Exception $e) {
 				echo($e);
-			}finally{
+			}finally{				
 				$pdo = null;
 			}
 		}
+		
 
 		/*public function agregar($parametro){
 			$pdo = $this->conectar();

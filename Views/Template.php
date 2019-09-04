@@ -25,10 +25,7 @@
 		?>
 	</section>
 
-
-	<script type="text/javascript" src="Views/js/ingreso.js"></script>	
+	
     <script type="text/javascript" src="../Views/Resources/alertify/alertify.min.js"></script>
-
-
 </body>
 </html>

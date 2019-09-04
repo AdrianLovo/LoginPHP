@@ -4,4 +4,6 @@
 	}
 ?>
 
-<h1>Bienvenido</h1>
+<div class="login">
+	<h2>Bienvenido</h2>
+</div>

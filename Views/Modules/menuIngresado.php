@@ -1,5 +1,8 @@
-<nav>
-	<a href="informacion">Usuario</a>
-	<a href="salida">Salir</a>
-	<div class="animation"></div>
-</nav>
+<center>
+	<nav>
+		<ul>
+	  		<li><a href="informacion">Usuario</a></li>
+			<li><a href="salida">Salir</a></li>
+		</ul>
+	</nav>
+</center>

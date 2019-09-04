@@ -16,6 +16,18 @@
 			return $filas;
 		}
 
+		public function queryBuscarPor($filtro){
+			$query = "SELECT * FROM login.usuario WHERE ".$filtro."=?";
+			return $query;
+		}
+
+		public function metodoBuscarPor($statement, $parametro){
+			$statement->execute([$parametro]);
+			$filas = $statement->rowCount();
+			return $filas;
+		}
+
+
 		
 
 	}
