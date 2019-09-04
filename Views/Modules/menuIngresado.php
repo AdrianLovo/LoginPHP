@@ -1,6 +1,5 @@
 <nav>
-	<ul>
-		<li><a href="informacion">Informacion</a></li>
-		<li><a href="salida">Salir</a></li>
-	</ul>
+	<a href="informacion">Usuario</a>
+	<a href="salida">Salir</a>
+	<div class="animation"></div>
 </nav>

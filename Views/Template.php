@@ -8,7 +8,6 @@
 	<link rel="stylesheet" type="text/css" href="../Views/Resources/alertify/css/alertify.min.css">
 	<script type="text/javascript" src="Views/js/jquery-3.3.1.min.js"></script>
 
-
 </head>
 <body>
 
@@ -26,10 +25,10 @@
 		?>
 	</section>
 
-	
 
 	<script type="text/javascript" src="Views/js/ingreso.js"></script>	
     <script type="text/javascript" src="../Views/Resources/alertify/alertify.min.js"></script>
+
 
 </body>
 </html>

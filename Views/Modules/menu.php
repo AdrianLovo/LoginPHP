@@ -1,6 +1,5 @@
 <nav>
-	<ul>
-		<li><a href="index.php">Ingreso</a></li>
-		<li><a href="registro">Registro</a></li>
-	</ul>
+	<a href="index.php">Ingreso</a>
+	<a href="registro">Registro</a>
+	<div class="animation"></div>
 </nav>

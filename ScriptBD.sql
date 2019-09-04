@@ -14,3 +14,4 @@ CREATE USER 'usuario'@'localhost' IDENTIFIED BY ''
 GO
 GRANT ALL PRIVILEGES ON * . * TO 'usuario'@'localhost'
 GO
+SELECT * FROM usuario

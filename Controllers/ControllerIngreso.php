@@ -25,7 +25,7 @@
 				$_SESSION['intentos'] = 1;	
 			}else{
 				$_SESSION['intentos'] = $_SESSION['intentos'] + 1;	
-				if($_SESSION['intentos'] == 3){
+				if($_SESSION['intentos'] == 5){
 					$intentos = true;
 				}
 			}			
