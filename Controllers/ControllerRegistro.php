@@ -14,17 +14,20 @@
 
 	switch ($funcion) {
 		case 1:
-			validarUsername($username);
+			validar($username, "usuario");
+			break;		
+		case 2:
+			validar($email, "email");
 			break;		
 	}
 
 
 
 
-	function validarUsername($username){
+	function validar($username, $filtro){
 		if($username !=""){
 			$dao = new DAOUsuario();
-			echo($dao->buscarPor($username, "usuario"));
+			echo($dao->buscarPor($username, $filtro));
 		}
 	}
 

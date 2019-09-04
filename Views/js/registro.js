@@ -1,12 +1,14 @@
 var GlobalUsername = true;
 var GlobalPassword = true;
+var GlobalEmail = true;
 
 function Registrar(){
-	var envio = ValidarRegistro();
-	
-	alert(envio);
-	/*if(envio){
-		var username = $("#username").val();
+	var terminos = document.querySelector("#agree").checked;
+
+	if(GlobalUsername == true && GlobalPassword == true && GlobalEmail==true && terminos == true){
+		alert("VALIDO")	;
+
+		/*var username = $("#username").val();
 		var password = $("#password").val();
 
 		datos = {"Funcion": 1, "username": username, "password": password};
@@ -27,13 +29,10 @@ function Registrar(){
 			},error: function() {
 				alertify.error('Error');
 			}
-		});
-	}*/
-}
-
-
-function ValidarRegistro(){
-		
+		});*/
+	}else{
+		alertify.error('Debes aceptar los terminos y condiciones');
+	}
 }
 
 
@@ -81,11 +80,11 @@ $("#password").change(function(){
 	var password = $("#password").val();
 	var expresion = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-	if(!expresion.test(password)){
-		$("#Epassword").html("<br> Mínimo de 8 caracteres al menos 1 alfabeto, 1 número");
-		bandera = false;
-	}else{
+	if(expresion.test(password)){
 		$("#Epassword").html("");					
+	}else{
+		$("#Epassword").html("<br> Mínimo de 8 caracteres al menos 1 alfabeto, 1 número");
+		bandera = false;	
 	}
 
 	if(bandera == false){
@@ -97,3 +96,39 @@ $("#password").change(function(){
 	}
 });
 
+$("#email").change(function(){
+	var bandera = true;
+	var email = $("#email").val();
+	var expresion = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+
+	if(expresion.test(email)){
+		$("#Eemail").html("");					
+	}else{		
+		$("#Eemail").html("<br> Escriba correctamente el Email");
+		bandera = false;
+	}
+	
+	datos = {"Funcion": 2, "email": email};
+	$.ajax({
+		url: "../../Controllers/ControllerRegistro.php",
+		type: "POST",
+		data: datos,
+		async: false,
+		success: function (respuesta) {
+			if(respuesta == 1){
+				bandera = false
+				$("#Eemail").html("<br> Email ya se encuentra registrado");					
+			}
+		},error: function() {
+			alertify.error('Error al validar Email');
+		}
+	});
+
+	if(bandera == false){
+		$("#email").addClass("alertFalse");		
+		GlobalEmail = false;
+	}else{
+		$("#email").removeClass("alertFalse");
+		GlobalEmail = true;
+	}
+});
