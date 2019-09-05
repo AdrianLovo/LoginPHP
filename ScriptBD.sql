@@ -5,7 +5,7 @@ GO
 CREATE TABLE IF NOT EXISTS usuario(
     idUsuario INT NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria',
     usuario VARCHAR(50),
-    password VARCHAR(50),
+    password VARCHAR(80),
     email VARCHAR(50),
     PRIMARY KEY (idUsuario)
 )

@@ -14,7 +14,8 @@
 
 
 	if($funcion != "" && $username !="" && $password != ""){
-		$parametro = new Usuario(null, $username, $password, null, null);
+		$encriptar = crypt($password, '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+		$parametro = new Usuario(null, $username, $encriptar, null, null);
 		$dao = new DAOUsuario();
 		$filas = $dao->buscar($parametro);
 

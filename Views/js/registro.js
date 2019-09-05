@@ -4,37 +4,32 @@ var GlobalEmail = true;
 
 function Registrar(){
 	var terminos = document.querySelector("#agree").checked;
-
 	if(GlobalUsername == true && GlobalPassword == true && GlobalEmail==true && terminos == true){
-		alert("VALIDO")	;
-
-		/*var username = $("#username").val();
+		var username = $("#username").val();
 		var password = $("#password").val();
+		var email = $("#email").val();
 
-		datos = {"Funcion": 1, "username": username, "password": password};
+		datos = {"Funcion": 3, "username": username, "password": password, "email": email};
 		$.ajax({
-			url: "../../Controllers/ControllerIngreso.php",
+			url: "../../Controllers/ControllerRegistro.php",
 			type: "POST",
 			data: datos,
 			async: true,
 			success: function (respuesta) {
-				if(respuesta == 1){
-					window.location.href = "informacion";
+				if(respuesta > 0){
+					alertify.success('Usuario Registrado');							
+					BorrarInputs();
 				}else{
-					alertify.error('Usuario o contraseña no validos');	
-				}
-				if(respuesta == "Error"){
-					window.location.href = "intentos";
+					alertify.error('Error al realizar el registro');	
 				}
 			},error: function() {
 				alertify.error('Error');
 			}
-		});*/
+		});
 	}else{
 		alertify.error('Debes aceptar los terminos y condiciones');
 	}
 }
-
 
 $("#username").change(function(){
 	var bandera = true;
@@ -132,3 +127,11 @@ $("#email").change(function(){
 		GlobalEmail = true;
 	}
 });
+
+function BorrarInputs(){
+	$("#username").val("");
+	$("#password").val("");
+	$("#email").val("");
+	$("#agree").prop('checked', false); 
+}
+

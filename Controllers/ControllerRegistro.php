@@ -17,11 +17,18 @@
 			validar($username, "usuario");
 			break;		
 		case 2:
-			validar($email, "email");
-			break;		
+			if(preg_match('/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/', $email)){
+				validar($email, "email");
+			}else{
+				echo(1);
+			}			
+			break;	
+		case 3:
+			$encriptar = crypt($password, '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+			$parametro = new Usuario(null, $username, $encriptar, $email);
+			agregar($parametro);
+			break;	
 	}
-
-
 
 
 	function validar($username, $filtro){
@@ -29,6 +36,11 @@
 			$dao = new DAOUsuario();
 			echo($dao->buscarPor($username, $filtro));
 		}
+	}
+
+	function agregar($parametro){
+		$dao = new DAOUsuario();
+		echo($dao->agregar($parametro));
 	}
 
 	

@@ -27,7 +27,16 @@
 			return $filas;
 		}
 
+		public function queryAgregar(){
+			$query = "INSERT INTO login.usuario(usuario, password, email) VALUES(?, ?, ?)";
+			return $query;
+		}
 
+		public function metodoAgregar($statement, $parametro){
+			$statement->execute([$parametro->getUsername(), $parametro->getPassword(), $parametro->getEmail()]);
+		}
+
+		
 		
 
 	}

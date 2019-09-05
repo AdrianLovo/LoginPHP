@@ -6,14 +6,14 @@
 
 		abstract function queryBuscar();		
 		abstract function queryBuscarPor($filtro);			
-		/*abstract function queryAgregar();						
-		abstract function queryEliminar();						
+		abstract function queryAgregar();						
+		/*abstract function queryEliminar();						
 		abstract function queryModificar();*/						
 
 		abstract function metodoBuscar($statement, $parametro);		
 		abstract function metodoBuscarPor($statement, $parametro);
-		/*abstract function metodoAgregar($statement, $parametro);
-		abstract function metodoEliminar($statement, $parametro);				
+		abstract function metodoAgregar($statement, $parametro);
+		/*abstract function metodoEliminar($statement, $parametro);				
 		abstract function metodoModificar($statement, $parametro1, $parametro2);*/
 		
 		
@@ -45,30 +45,22 @@
 			}
 		}
 		
-
-		/*public function agregar($parametro){
+		public function agregar($parametro){
 			$pdo = $this->conectar();
 			try{
-				$pdo->beginTransaction();
 				$statement = $pdo->prepare($this->queryAgregar());
 				$this->metodoAgregar($statement, $parametro);
-				$idGenerado = $pdo->lastInsertId();	
-
-				for($i = 1; $i <=$parametro->getCantidadCuotas(); $i++){
-					$statement2 = $pdo->prepare($this->queryAgregarDetalle());
-					$this->metodoAgregarDetalle($statement2, $idGenerado, $i);	
-				}
-				$pdo->commit();
-				return $idGenerado;
+				$id = $pdo->lastInsertId();
+				$pdo = null;
+				return $id;
 			}catch(PDOException $e){
-				$pdo->rollBack();
-				LogError::guardarLog("Sql.log", $e->getMessage(), $e->getCode(), $e->getFile(), $e->getLine());
+				echo($e);
 			}finally{
-				$this->desconectar();
+				$pdo = null;
 			}
 		}
 
-		public function eliminar($parametro) {
+		/*public function eliminar($parametro) {
 			$pdo = $this->conectar();
 			try{
 				$pdo->beginTransaction();

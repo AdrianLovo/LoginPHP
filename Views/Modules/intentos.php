@@ -1,1 +1,1 @@
-<h1 class="textoPrincipal"><a href="ingreso"><center>Error al ingresar</center><center> <br> Click para ingresar a principal nuevamente</center></a></h1>
+<h1 class="textoPrincipal"><a href="ingreso"><center>5 intentos fallidos al ingresar</center><center> <br> Click para ingresar a principal nuevamente</center></a></h1>
